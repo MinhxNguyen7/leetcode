@@ -30,7 +30,7 @@ class ListNode:
             node = node.next
             
     def __str__(self):
+        """
+        WARNING: This results in an infinite loop if the linked list has a cycle
+        """
         return "[" + ", ".join(str(node.val) for node in self.nodes()) + "]"
-    
-    def __repr__(self) -> str:
-        return f"ListNode({str(self)})"
