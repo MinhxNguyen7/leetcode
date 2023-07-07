@@ -4,13 +4,13 @@ from queue import SimpleQueue
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
-        self.left = left
-        self.right = right
+        self.left: TreeNode|None = left
+        self.right: TreeNode|None = right
     
     # Adapted from 
     # https://leetcode.com/problems/recover-binary-search-tree/solutions/32539/Tree-Deserializer-and-Visualizer-for-Python/
     @staticmethod
-    def from_level_array(it: Iterable[int]) -> 'TreeNode|None':
+    def from_level_array(it: Iterable[int|None]) -> 'TreeNode|None':
         """
         Returns the tree as defined by an iterable representing the
         level-order traversal of the tree (LeetCode style)
