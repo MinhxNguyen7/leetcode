@@ -7,26 +7,26 @@ class TreeNode:
         self.left = left
         self.right = right
     
-    # From https://leetcode.com/problems/recover-binary-search-tree/solutions/32539/Tree-Deserializer-and-Visualizer-for-Python/
+    # Adapted from 
+    # https://leetcode.com/problems/recover-binary-search-tree/solutions/32539/Tree-Deserializer-and-Visualizer-for-Python/
     @staticmethod
-    def from_level_array(string: str) -> 'TreeNode|None':
+    def from_level_array(it: Iterable[int]) -> 'TreeNode|None':
         """
-        Returns the tree as defined by a string representing the
+        Returns the tree as defined by an iterable representing the
         level-order traversal of the tree (LeetCode style)
         """
-        if string == '{}':
-            return None
-        nodes = [None if val == 'null' else TreeNode(int(val))
-                for val in string.strip('[]{}').split(',')]
+        nodes = [None if val is None else TreeNode(val) for val in it]
+        
         kids = nodes[::-1]
         root = kids.pop()
+        
         for node in nodes:
             if node:
                 if kids: node.left  = kids.pop()
                 if kids: node.right = kids.pop()
+                
         return root
 
 if __name__ == '__main__':
-    string = "[" + ",".join(str(i) for i in range(10)) + "]"
-    print(string)
-    tree = TreeNode.from_level_array(string)
+    tree = TreeNode.from_level_array(i for i in range(10))
+    
