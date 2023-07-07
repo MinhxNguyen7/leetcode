@@ -26,7 +26,17 @@ class TreeNode:
                 if kids: node.right = kids.pop()
                 
         return root
-
+    
+    def search(self: 'TreeNode', val: int) -> 'TreeNode|None':
+        if self is None: return None
+        if self.val == val: return self
+        
+        left_search = self.left.search(val) if self.left else None
+        if left_search: return left_search
+        
+        right_search = self.right.search(val) if self.right else None
+        return right_search
+        
 if __name__ == '__main__':
     tree = TreeNode.from_level_array(i for i in range(10))
     
