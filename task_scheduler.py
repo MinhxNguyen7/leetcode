@@ -1,5 +1,7 @@
 from collections import Counter
 
+
+# Reference: https://leetcode.com/problems/task-scheduler/solutions/699297/python-very-detailed-explanation-with-examples/
 class Solution:
     @staticmethod
     def leastInterval(tasks: list[str], n: int) -> int:
