@@ -31,7 +31,7 @@ def test(expected: Any, func: Callable, *args, **kwargs) -> TestResults:
     
     arguments = ', '.join(chain(
         (str(arg) for arg in args),
-        (f"{key}={value}" for key, value in kwargs)
+        (f"{key}={value}" for key, value in kwargs.items())
     ))
     
     print(
