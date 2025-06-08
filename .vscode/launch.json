@@ -5,14 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "type": "lldb",
             "request": "launch",
-            "name": "Launch",
+            "name": "(C++) Build and Debug Current File",
             "program": "bin/${fileBasenameNoExtension}.out",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "C++ Build current file (debug)",
         }
-
     ]
 }
