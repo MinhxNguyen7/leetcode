@@ -13,7 +13,8 @@
                 "-Wall",
                 "-Wextra",
                 "-Werror",
-                "-g"
+                "-g",
+                "-I${workspaceFolder}"
             ],
             "problemMatcher": [
                 "$tsc"
